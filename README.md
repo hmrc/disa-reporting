@@ -1,7 +1,7 @@
 
 # disa-reporting
 
-This is a placeholder README.md for a new repository
+This is the backend service for reconciliation reporting in Manage ISAs.
 
 ### License
 
