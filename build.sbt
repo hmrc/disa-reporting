@@ -14,6 +14,11 @@ lazy val microservice = Project("disa-reporting", file("."))
     scalacOptions += "-Wconf:src=routes/.*:s"
   )
   .settings(CodeCoverageSettings.settings: _*)
+  .settings(
+    Compile / unmanagedResourceDirectories += baseDirectory.value / "resources"
+  )
+  .disablePlugins(JUnitXmlReportPlugin)
+  .settings(PlayKeys.playDefaultPort := 12107)
 
 addCommandAlias("prePrChecks", ";scalafmtCheckAll;scalafmtSbtCheck")
 
