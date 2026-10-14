@@ -17,6 +17,10 @@ lazy val microservice = Project("disa-reporting", file("."))
   .disablePlugins(JUnitXmlReportPlugin)
   .settings(PlayKeys.playDefaultPort := 12107)
 
+Test / javaOptions += "-Dlogger.resource=logback-test.xml"
+Test / classLoaderLayeringStrategy := ClassLoaderLayeringStrategy.Flat
+Test / fork := true
+
 addCommandAlias("prePrChecks", ";scalafmtCheckAll;scalafmtSbtCheck")
 
 addCommandAlias("precommit", ";scalafmtAll;coverage;test;it/test;coverageReport")
